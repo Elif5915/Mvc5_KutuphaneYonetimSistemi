@@ -16,5 +16,20 @@ namespace Mvc5_KutuphaneYonetimSistemi.Controllers
             var value = db.Kategori.ToList();
             return View(value);
         }
+
+        [HttpGet]
+        public ActionResult KategoriEkle()
+		{
+            return View();
+		}
+
+        [HttpPost]
+        public ActionResult KategoriEkle(Kategori kategori)
+		{
+            db.Kategori.Add(kategori);
+            db.SaveChanges();
+            //return RedirectToAction("Index");
+            return View();
+		}
     }
 }
