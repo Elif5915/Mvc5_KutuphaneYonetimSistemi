@@ -1,0 +1,26 @@
+﻿@model Mvc5_KutuphaneYonetimSistemi.Models.Entity.Yazar
+
+
+@{
+    ViewBag.Title = "YazarEkle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Yeni Yazar</h2>
+
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15px">
+        <label> Ad</label>
+        @Html.TextBoxFor(y => y.Ad, new { @class = "form-control" })
+        <br />
+        <label> Soyad</label>
+        @Html.TextBoxFor(y => y.Soyad, new { @class = "form-control" })
+        <br />
+        <label>Detay</label>
+        @Html.TextAreaFor(y => y.Detay, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Yazar Ekle</button>
+    </div>
+</form>

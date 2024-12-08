@@ -1,0 +1,28 @@
+﻿@using Mvc5_KutuphaneYonetimSistemi.Models.Entity
+@model List<Yazar>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Yazarlar</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Detay</th>
+    </tr>
+    @foreach(var item in Model)
+			{
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Ad</td>
+                    <td>@item.Soyad</td>
+                    <td>@item.Detay</td>
+                </tr>
+			}
+</table>
+<a class="btn btn-primary" href="/Yazar/YazarEkle/">Yeni Yazar Ekle</a>
