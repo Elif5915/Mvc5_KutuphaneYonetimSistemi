@@ -31,5 +31,28 @@ namespace Mvc5_KutuphaneYonetimSistemi.Controllers
             //return RedirectToAction("Index");
             return View();
 		}
+        public ActionResult KategoriSil(int id)
+		{
+            var kategori = db.Kategori.Find(id);
+            db.Kategori.Remove(kategori);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+		}
+
+        public ActionResult KategoriGuncelle(int id)
+		{
+            var value = db.Kategori.Find(id);
+            return View("KategoriGüncelle", value);
+		}
+        [HttpPost]
+        public ActionResult KategoriGuncelle(Kategori kategori)
+		{
+            var ktg = db.Kategori.Find(kategori.Id);
+            ktg.Ad = kategori.Ad;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+		}
+
+
     }
 }
