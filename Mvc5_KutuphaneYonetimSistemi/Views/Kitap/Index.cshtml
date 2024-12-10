@@ -7,9 +7,15 @@
 }
 
 <h2>Kitaplar</h2>
+
+@using (Html.BeginForm("Index", "Kitap", FormMethod.Get)) 
+{ 
 <div style="margin-bottom:15px; margin-top:15px;">
-    <input type="text" class="form-control" placeholder="Kitap Ara"/>
+    <b>Kitap Ara: </b> @Html.TextBox("p")
+    <input type="submit" value="Ara" />
 </div>
+}
+
 <table class="table table-bordered">
     <tr>
         <th>Id</th>

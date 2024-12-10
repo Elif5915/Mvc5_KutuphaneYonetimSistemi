@@ -11,11 +11,18 @@ namespace Mvc5_KutuphaneYonetimSistemi.Controllers
     {
         // GET: Kitap
         DBKUTUPHANEEntities db = new DBKUTUPHANEEntities();
-        public ActionResult Index()
+        public ActionResult Index(string p)
         {
-            var kitaplar = db.Kitap.ToList();
+            var kitaplar = string.IsNullOrEmpty(p)
+         ? db.Kitap.ToList()
+         : db.Kitap.Where(k => k.Ad.Contains(p) ||
+                               k.Yazar1.Ad.Contains(p) ||
+                               k.Yazar1.Soyad.Contains(p) ||
+                               k.Kategori1.Ad.Contains(p)).ToList();
+
             return View(kitaplar);
         }
+
         [HttpGet]
         public ActionResult KitapEkle()
 		{
