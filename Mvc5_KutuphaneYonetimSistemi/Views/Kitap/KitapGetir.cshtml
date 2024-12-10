@@ -1,0 +1,47 @@
+﻿@model Mvc5_KutuphaneYonetimSistemi.Models.Entity.Kitap
+
+@{
+    ViewBag.Title = "KitapGetir";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("KitapGuncelle", "Kitap", FormMethod.Post))
+{
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        <div style="margin-bottom:15px">
+            <label>Kitap Id</label>
+            @Html.TextBoxFor(y => y.Id, new { @class = "form-control" })
+        </div>
+        <div style="margin-bottom:15px">
+            <label>Kitap Adı</label>
+            @Html.TextBoxFor(y => y.Ad, new { @class = "form-control" })
+        </div>
+        <div style="margin-bottom:15px">
+            <label>Kitap Yazarı</label>
+            @Html.DropDownListFor(y => y.Yazar1.Id, (List<SelectListItem>)ViewBag.YazarCombo, new { @class = "form-control" })
+        </div>
+        <div style="margin-bottom:15px">
+            <label>Kategori</label>
+            @Html.DropDownListFor(y => y.Kategori1.Id, (List<SelectListItem>)ViewBag.KategoriCombo, new { @class = "form-control" })
+        </div>
+        <div style="margin-bottom:15px">
+            <label>Basım Yılı</label>
+            @Html.TextBoxFor(y => y.BasımYıl, new { @class = "form-control" })
+        </div>
+        <div style="margin-bottom:15px">
+            <label>Yayınevi</label>
+            @Html.TextBoxFor(y => y.YayınEvi, new { @class = "form-control" })
+        </div>
+        <div style="margin-bottom:15px">
+            <label>Sayfa</label>
+            @Html.TextBoxFor(y => y.Sayfa, new { @class = "form-control" })
+        </div>
+        
+        <button class="btn btn-success">Kitap Bilgilerini Güncelle</button>
+    </div>
+}
+
+
+
