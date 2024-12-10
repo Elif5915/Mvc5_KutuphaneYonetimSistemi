@@ -1,34 +1,58 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Mvc5_KutuphaneYonetimSistemi.Models.Entity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using Mvc5_KutuphaneYonetimSistemi.Models.Entity;
 
 namespace Mvc5_KutuphaneYonetimSistemi.Controllers
 {
-    public class YazarController : Controller
-    {
-        // GET: Yazar
-        DBKUTUPHANEEntities db = new DBKUTUPHANEEntities();
-        public ActionResult Index()
-        {
-            var values = db.Yazar.ToList();
-            return View(values);
-        }
-
-        [HttpGet]
-        public ActionResult YazarEkle()
+	public class YazarController : Controller
+	{
+		// GET: Yazar
+		DBKUTUPHANEEntities db = new DBKUTUPHANEEntities();
+		public ActionResult Index()
 		{
-            return View();
+			var values = db.Yazar.ToList();
+			return View(values);
 		}
 
-        [HttpPost]
-        public ActionResult YazarEkle(Yazar yazar)
+		[HttpGet]
+		public ActionResult YazarEkle()
 		{
-            db.Yazar.Add(yazar);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+			return View();
 		}
-    }
+
+		[HttpPost]
+		public ActionResult YazarEkle(Yazar yazar)
+		{
+			db.Yazar.Add(yazar);
+			db.SaveChanges();
+			return RedirectToAction("Index");
+		}
+		public ActionResult YazarSil(int id)
+		{
+			var value = db.Yazar.Find(id);
+			db.Yazar.Remove(value);
+			db.SaveChanges();
+			return RedirectToAction("Index");
+		}
+
+		public ActionResult YazarGetir(int id)
+		{
+			var value = db.Yazar.Find(id);
+			return View("YazarGetir", value);
+		
+		}
+
+		[HttpPost]
+		public ActionResult YazarGuncelle(Yazar y)
+		{
+			var value = db.Yazar.Find(y.Id);
+			value.Ad = y.Ad;
+			value.Soyad = y.Soyad;
+			value.Detay = y.Detay;
+			db.SaveChanges();
+			return RedirectToAction("Index");
+		}
+
+
+	}
 }

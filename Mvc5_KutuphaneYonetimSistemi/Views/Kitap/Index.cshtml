@@ -1,0 +1,43 @@
+﻿@using Mvc5_KutuphaneYonetimSistemi.Models.Entity
+@model List<Kitap>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Kitaplar</h2>
+<div style="margin-bottom:15px; margin-top:15px;">
+    <input type="text" class="form-control" placeholder="Kitap Ara"/>
+</div>
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Kitap Adı</th>
+        <th>Kitap Yazarı</th>
+        <th>Kategori</th>
+        <th>Basım Yılı</th>
+        <th>Yayınevi</th>
+        <th>Sayfa</th>
+        <th>Durum</th>
+        <th></th>
+    </tr>
+    @foreach(var book in Model)
+     {
+        <tr>
+            <td>@book.Id</td>
+            <td>@book.Ad</td>
+            <td>@book.Yazar1.Ad&nbsp @book.Yazar1.Soyad</td>
+            <td>@book.Kategori1.Ad</td>
+            <td>@book.BasımYıl</td>
+            <td>@book.YayınEvi</td>
+            <td>@book.Sayfa</td>
+            <td>@book.Durum</td>
+            <td>
+                <a href="/Kitap/KitapSil/@book.Id" class="btn btn-danger">Sil</a>
+                <a href="/Kitap/KitapGuncelle/@book.Id" class="btn btn-info">Güncelle</a>
+            </td>
+        </tr>
+     }
+</table>
+<a href="/Kitap/KitapEkle" class="btn btn-primary">Yeni Kitap</a>

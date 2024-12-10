@@ -14,6 +14,8 @@
         <th>Ad</th>
         <th>Soyad</th>
         <th>Detay</th>
+        <th></th>
+        <th></th>
     </tr>
     @foreach(var item in Model)
 			{
@@ -22,6 +24,11 @@
                     <td>@item.Ad</td>
                     <td>@item.Soyad</td>
                     <td>@item.Detay</td>
+                    <td>
+                        @*<a href="#" class="btn btn-danger">Sil</a>*@
+                        <a href="/Yazar/YazarGetir/@item.Id" class="btn btn-info">Güncelle</a>
+                    </td>
+                    <td>@Html.ActionLink("Sil","YazarSil", new {id = item.Id}, new {@class = "btn btn-danger", onclick ="return confirm('Silmek istediğinize emin misiniz?')"})</td>
                 </tr>
 			}
 </table>
