@@ -11,10 +11,13 @@ namespace Mvc5_KutuphaneYonetimSistemi.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class Personel
+	using System.ComponentModel.DataAnnotations;
+
+	public partial class Personel
     {
         public byte Id { get; set; }
+
+        [Required(ErrorMessage ="Lütfen personel bilgisini giriniz!")]
         public string Personel1 { get; set; }
     }
 }
