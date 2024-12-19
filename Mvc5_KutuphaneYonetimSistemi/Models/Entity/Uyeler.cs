@@ -11,8 +11,9 @@ namespace Mvc5_KutuphaneYonetimSistemi.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class Uyeler
+	using System.ComponentModel.DataAnnotations;
+
+	public partial class Uyeler
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Uyeler()
@@ -22,10 +23,18 @@ namespace Mvc5_KutuphaneYonetimSistemi.Models.Entity
         }
     
         public int Id { get; set; }
+
+        [Required(ErrorMessage ="Ad Alaný Boþ Býrakýlamaz!")]
+        [StringLength(20,ErrorMessage ="En Fazla 20 Karakter Girebilirsiniz!")]
         public string Ad { get; set; }
         public string Soyad { get; set; }
+
+        [DataType(DataType.EmailAddress, ErrorMessage = "E-mail is not valid")]
         public string Mail { get; set; }
         public string KullaniciAdi { get; set; }
+
+        [Required(ErrorMessage = "Þifre Alaný Boþ Býrakýlamaz!")]
+        [StringLength(1, ErrorMessage = "En Fazla 1 Karakter Girebilirsiniz!")]
         public string Sifre { get; set; }
         public string Fotograf { get; set; }
         public string Telefon { get; set; }

@@ -1,0 +1,58 @@
+﻿@model Mvc5_KutuphaneYonetimSistemi.Models.Entity.Uyeler
+
+@{
+    ViewBag.Title = "UyeEkle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15px">
+        <label>Üye Adı</label>
+        @*<input type="text" class="form-control" name="Personel1" />*@
+        @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
+        @Html.ValidationMessageFor(y => y.Ad, "", new { @style = "color:red" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Üye Soyadı</label>
+        @*<input type="text" class="form-control" name="Personel1" />*@
+        @Html.TextBoxFor(x => x.Soyad, new { @class = "form-control" })
+
+    </div>
+    <div style="margin-top:15px">
+        <label>Mail</label>
+        @*<input type="text" class="form-control" name="Personel1" />*@
+        @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Kullanıcı Ad</label>
+        @*<input type="text" class="form-control" name="Personel1" />*@
+        @Html.TextBoxFor(x => x.KullaniciAdi, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Şifre</label>
+        @*<input type="text" class="form-control" name="Personel1" />*@
+        @Html.TextBoxFor(x => x.Sifre, new { @class = "form-control" })
+        @Html.ValidationMessageFor(y => y.Ad, "", new { @style = "color:red" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Fotoğraf Linki</label>
+        @*<input type="text" class="form-control" name="Personel1" />*@
+        @Html.TextBoxFor(x => x.Fotograf, new { @class = "form-control" })
+        @Html.ValidationMessageFor(y => y.Fotograf, "", new { @style = "color:red" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Telefon</label>
+        @*<input type="text" class="form-control" name="Personel1" />*@
+        @Html.TextBoxFor(x => x.Telefon, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Okul</label>
+        @*<input type="text" class="form-control" name="Personel1" />*@
+        @Html.TextBoxFor(x => x.Okul, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-success" id="Btn1">Üye Ekle</button>
+    </div>
+</form>
+
