@@ -28,5 +28,20 @@ namespace Mvc5_KutuphaneYonetimSistemi.Controllers
             db.SaveChanges();
             return View();
 		}
+
+        public ActionResult OduncIade(int id)
+		{
+            var data = db.Hareket.Find(id);
+            return View("OduncIade", data);
+		}
+        [HttpPost]
+        public ActionResult OduncGuncelle(Hareket hareket)
+        {
+            var data = db.Hareket.Find(hareket.Id);
+            data.UyeGetirTarih = hareket.UyeGetirTarih;
+            data.IslemDurum = true;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

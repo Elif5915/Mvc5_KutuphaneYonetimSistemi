@@ -26,6 +26,8 @@ namespace Mvc5_KutuphaneYonetimSistemi.Models.Entity
         public Nullable<byte> Personel { get; set; }
         public Nullable<System.DateTime> AlisTarihi { get; set; }
         public Nullable<System.DateTime> IadeTarihi { get; set; }
+        public Nullable<bool> IslemDurum { get; set; }
+        public Nullable<System.DateTime> UyeGetirTarih { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cezalar> Cezalar { get; set; }

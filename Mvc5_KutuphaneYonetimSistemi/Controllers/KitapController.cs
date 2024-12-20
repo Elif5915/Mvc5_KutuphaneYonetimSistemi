@@ -97,6 +97,7 @@ namespace Mvc5_KutuphaneYonetimSistemi.Controllers
             value.BasımYıl = kitap.BasımYıl;
             value.YayınEvi = kitap.YayınEvi;
             value.Sayfa = kitap.Sayfa;
+            value.Durum = true;
 
             var ktg = db.Kategori.Where(k => k.Id == kitap.Kategori1.Id).FirstOrDefault();
             var yzr = db.Yazar.Where(y => y.Id == kitap.Yazar1.Id).FirstOrDefault();
