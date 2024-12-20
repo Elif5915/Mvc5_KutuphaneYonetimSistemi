@@ -11,13 +11,19 @@ namespace Mvc5_KutuphaneYonetimSistemi.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-	using System.ComponentModel.DataAnnotations;
-
-	public partial class Personel
+    
+    public partial class Personel
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Personel()
+        {
+            this.Hareket = new HashSet<Hareket>();
+        }
+    
         public byte Id { get; set; }
-
-        [Required(ErrorMessage ="Lütfen personel bilgisini giriniz!")]
         public string Personel1 { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Hareket> Hareket { get; set; }
     }
 }

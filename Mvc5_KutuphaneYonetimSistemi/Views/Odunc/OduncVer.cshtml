@@ -1,0 +1,36 @@
+﻿@model Mvc5_KutuphaneYonetimSistemi.Models.Entity.Hareket
+
+@{
+    ViewBag.Title = "OduncVer";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15px">
+        <label> Üye ID</label>
+        @Html.TextBoxFor(y => y.Uye, new { @class = "form-control" })
+        <br />
+        <label> Kitap Id</label>
+        @Html.TextBoxFor(y => y.Kitap, new { @class = "form-control" })
+        <br />
+        <label> Personel Id</label>
+        @Html.TextBoxFor(y => y.Personel, new { @class = "form-control" })
+        <br />
+        <label> Kitap Alış Tarihi</label>
+        <input type="text" class="form-control" name="AlisTarihi" value="@DateTime.Now.ToShortDateString()" readonly />
+        <br />
+        <label> Kitap İade Tarihi</label>
+        <input type="text" class="form-control" name="IadeTarihi" value="@DateTime.Now.AddDays(7).ToString("dd-MM-yyyy")" /> 
+        @*üyenin kütabı verme süresi default 7 gün olarak belirlendi. aldığı gün + 7 = teslim*@
+
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-group" style="background-color:#9d58ba; color:white">Kitap Ödünç Ver</button>
+    </div>
+</form>
+
+
+
+

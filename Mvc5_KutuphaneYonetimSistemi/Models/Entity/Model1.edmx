@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DBKUTUPHANEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DBKUTUPHANEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Cezalar">
           <Key>
             <PropertyRef Name="Id" />
@@ -23,7 +23,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Kıtap" Type="int" />
           <Property Name="Uye" Type="int" />
-          <Property Name="Personel" Type="int" />
+          <Property Name="Personel" Type="tinyint" />
           <Property Name="AlisTarihi" Type="smalldatetime" />
           <Property Name="IadeTarihi" Type="smalldatetime" />
         </EntityType>
@@ -131,6 +131,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Hareket_Personel">
+          <End Role="Personel" Type="Self.Personel" Multiplicity="0..1" />
+          <End Role="Hareket" Type="Self.Hareket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Hareket">
+              <PropertyRef Name="Personel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Hareket_Uyeler">
           <End Role="Uyeler" Type="Self.Uyeler" Multiplicity="0..1" />
           <End Role="Hareket" Type="Self.Hareket" Multiplicity="*" />
@@ -189,6 +201,10 @@
             <End Role="Kitap" EntitySet="Kitap" />
             <End Role="Hareket" EntitySet="Hareket" />
           </AssociationSet>
+          <AssociationSet Name="FK_Hareket_Personel" Association="Self.FK_Hareket_Personel">
+            <End Role="Personel" EntitySet="Personel" />
+            <End Role="Hareket" EntitySet="Hareket" />
+          </AssociationSet>
           <AssociationSet Name="FK_Hareket_Uyeler" Association="Self.FK_Hareket_Uyeler">
             <End Role="Uyeler" EntitySet="Uyeler" />
             <End Role="Hareket" EntitySet="Hareket" />
@@ -202,8 +218,7 @@
             <End Role="Kitap" EntitySet="Kitap" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBKUTUPHANEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -227,12 +242,13 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Kıtap" Type="Int32" />
           <Property Name="Uye" Type="Int32" />
-          <Property Name="Personel" Type="Int32" />
+          <Property Name="Personel" Type="Byte" />
           <Property Name="AlisTarihi" Type="DateTime" Precision="0" />
           <Property Name="IadeTarihi" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Cezalar" Relationship="Self.FK_Cezalar_Hareket" FromRole="Hareket" ToRole="Cezalar" />
           <NavigationProperty Name="Kitap" Relationship="Self.FK_Hareket_Kitap" FromRole="Hareket" ToRole="Kitap" />
           <NavigationProperty Name="Uyeler" Relationship="Self.FK_Hareket_Uyeler" FromRole="Hareket" ToRole="Uyeler" />
+          <NavigationProperty Name="Personel1" Relationship="DBKUTUPHANEModel.FK_Hareket_Personel" FromRole="Hareket" ToRole="Personel" />
         </EntityType>
         <EntityType Name="Kasa">
           <Key>
@@ -265,13 +281,6 @@
           <NavigationProperty Name="Hareket" Relationship="Self.FK_Hareket_Kitap" FromRole="Kitap" ToRole="Hareket" />
           <NavigationProperty Name="Kategori1" Relationship="Self.FK_Kitap_Kategori" FromRole="Kitap" ToRole="Kategori" />
           <NavigationProperty Name="Yazar1" Relationship="Self.FK_Kitap_Yazar" FromRole="Kitap" ToRole="Yazar" />
-        </EntityType>
-        <EntityType Name="Personel">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Personel1" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -387,7 +396,6 @@
           <EntitySet Name="Kasa" EntityType="Self.Kasa" />
           <EntitySet Name="Kategori" EntityType="Self.Kategori" />
           <EntitySet Name="Kitap" EntityType="Self.Kitap" />
-          <EntitySet Name="Personel" EntityType="Self.Personel" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Uyeler" EntityType="Self.Uyeler" />
           <EntitySet Name="Yazar" EntityType="Self.Yazar" />
@@ -415,7 +423,32 @@
             <End Role="Yazar" EntitySet="Yazar" />
             <End Role="Kitap" EntitySet="Kitap" />
           </AssociationSet>
+          <EntitySet Name="Personel" EntityType="DBKUTUPHANEModel.Personel" />
+          <AssociationSet Name="FK_Hareket_Personel" Association="DBKUTUPHANEModel.FK_Hareket_Personel">
+            <End Role="Personel" EntitySet="Personel" />
+            <End Role="Hareket" EntitySet="Hareket" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Personel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Personel1" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Hareket" Relationship="DBKUTUPHANEModel.FK_Hareket_Personel" FromRole="Personel" ToRole="Hareket" />
+        </EntityType>
+        <Association Name="FK_Hareket_Personel">
+          <End Type="DBKUTUPHANEModel.Personel" Role="Personel" Multiplicity="0..1" />
+          <End Type="DBKUTUPHANEModel.Hareket" Role="Hareket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Hareket">
+              <PropertyRef Name="Personel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -477,14 +510,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Personel">
-            <EntityTypeMapping TypeName="DBKUTUPHANEModel.Personel">
-              <MappingFragment StoreEntitySet="Personel">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Personel1" ColumnName="Personel" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="DBKUTUPHANEModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
@@ -518,6 +543,14 @@
                 <ScalarProperty Name="Ad" ColumnName="Ad" />
                 <ScalarProperty Name="Soyad" ColumnName="Soyad" />
                 <ScalarProperty Name="Detay" ColumnName="Detay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Personel">
+            <EntityTypeMapping TypeName="DBKUTUPHANEModel.Personel">
+              <MappingFragment StoreEntitySet="Personel">
+                <ScalarProperty Name="Personel1" ColumnName="Personel" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
