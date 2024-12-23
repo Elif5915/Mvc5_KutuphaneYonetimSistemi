@@ -13,7 +13,8 @@ namespace Mvc5_KutuphaneYonetimSistemi.Controllers
         DBKUTUPHANEEntities db = new DBKUTUPHANEEntities();
         public ActionResult Index()
         {
-            var values = db.Hareket.ToList();
+            //var values = db.Hareket.ToList();
+            var values = db.Hareket.Where(x => x.IslemDurum == false).ToList();
             return View(values);
         }
         [HttpGet]

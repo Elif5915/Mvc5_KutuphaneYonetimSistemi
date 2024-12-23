@@ -56,6 +56,7 @@
           <Property Name="YayınEvi" Type="varchar" MaxLength="50" />
           <Property Name="Sayfa" Type="varchar" MaxLength="4" />
           <Property Name="Durum" Type="bit" />
+          <Property Name="Resim" Type="varchar" MaxLength="350" />
         </EntityType>
         <EntityType Name="Personel">
           <Key>
@@ -285,6 +286,7 @@
           <NavigationProperty Name="Hareket" Relationship="Self.FK_Hareket_Kitap" FromRole="Kitap" ToRole="Hareket" />
           <NavigationProperty Name="Kategori1" Relationship="Self.FK_Kitap_Kategori" FromRole="Kitap" ToRole="Kategori" />
           <NavigationProperty Name="Yazar1" Relationship="Self.FK_Kitap_Yazar" FromRole="Kitap" ToRole="Yazar" />
+          <Property Name="Resim" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -505,6 +507,7 @@
           <EntitySetMapping Name="Kitap">
             <EntityTypeMapping TypeName="DBKUTUPHANEModel.Kitap">
               <MappingFragment StoreEntitySet="Kitap">
+                <ScalarProperty Name="Resim" ColumnName="Resim" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Ad" ColumnName="Ad" />
                 <ScalarProperty Name="Kategori" ColumnName="Kategori" />

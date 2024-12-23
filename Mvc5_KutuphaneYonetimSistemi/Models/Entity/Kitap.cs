@@ -28,6 +28,7 @@ namespace Mvc5_KutuphaneYonetimSistemi.Models.Entity
         public string YayınEvi { get; set; }
         public string Sayfa { get; set; }
         public Nullable<bool> Durum { get; set; }
+        public string Resim { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Hareket> Hareket { get; set; }
