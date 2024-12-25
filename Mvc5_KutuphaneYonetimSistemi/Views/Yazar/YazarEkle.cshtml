@@ -13,9 +13,11 @@
     <div style="margin-top:15px">
         <label> Ad</label>
         @Html.TextBoxFor(y => y.Ad, new { @class = "form-control" })
+        @Html.ValidationMessageFor(y => y.Ad)
         <br />
         <label> Soyad</label>
         @Html.TextBoxFor(y => y.Soyad, new { @class = "form-control" })
+        @Html.ValidationMessageFor(y=>y.Soyad)
         <br />
         <label>Detay</label>
         @Html.TextAreaFor(y => y.Detay, new { @class = "form-control" })

@@ -11,8 +11,9 @@ namespace Mvc5_KutuphaneYonetimSistemi.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class Yazar
+	using System.ComponentModel.DataAnnotations;
+
+	public partial class Yazar
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Yazar()
@@ -21,7 +22,9 @@ namespace Mvc5_KutuphaneYonetimSistemi.Models.Entity
         }
     
         public int Id { get; set; }
+        [Required(ErrorMessage ="Yazar Adýný Boþ Geçemezsiniz")]
         public string Ad { get; set; }
+        [StringLength(20,ErrorMessage ="Soyad 20 Karakterden uzun olamaz")]
         public string Soyad { get; set; }
         public string Detay { get; set; }
     

@@ -30,9 +30,13 @@ namespace Mvc5_KutuphaneYonetimSistemi.Controllers
             return View();
 		}
 
-        public ActionResult OduncIade(int id)
+        public ActionResult OduncIade(Hareket hareket)
 		{
-            var data = db.Hareket.Find(id);
+            var data = db.Hareket.Find(hareket.Id);
+            DateTime dt = DateTime.Parse(data.IadeTarihi.ToString());
+            DateTime nw = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+            TimeSpan farkTarih = nw - dt;
+            ViewBag.dgr = farkTarih.TotalDays;
             return View("OduncIade", data);
 		}
         [HttpPost]

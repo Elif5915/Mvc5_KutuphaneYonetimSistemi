@@ -23,6 +23,10 @@ namespace Mvc5_KutuphaneYonetimSistemi.Controllers
 		[HttpPost]
 		public ActionResult YazarEkle(Yazar yazar)
 		{
+			if (!ModelState.IsValid) //model üzerinde yapmış olduğum geçerleme/validate işlemi yapılmamış ise kurala uygun kayıt işlemi yapılamasın 
+			{
+				return View("YazarEkle");
+			}
 			db.Yazar.Add(yazar);
 			db.SaveChanges();
 			return RedirectToAction("Index");
