@@ -12,6 +12,8 @@ namespace Mvc5_KutuphaneYonetimSistemi.Models.Entity
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class DBKUTUPHANEEntities : DbContext
     {
@@ -36,5 +38,10 @@ namespace Mvc5_KutuphaneYonetimSistemi.Models.Entity
         public virtual DbSet<Personel> Personel { get; set; }
         public virtual DbSet<Hakkimizda> Hakkimizda { get; set; }
         public virtual DbSet<İletisim> İletisim { get; set; }
+    
+        public virtual ObjectResult<string> EnFazlaKitapYazar()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("EnFazlaKitapYazar");
+        }
     }
 }

@@ -199,6 +199,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="EnFazlaKitapYazar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="DBKUTUPHANEModelStoreContainer">
           <EntitySet Name="Cezalar" EntityType="Self.Cezalar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Hakkimizda" EntityType="Self.Hakkimizda" Schema="dbo" store:Type="Tables" />
@@ -455,6 +456,7 @@
           </AssociationSet>
           <EntitySet Name="Hakkimizda" EntityType="DBKUTUPHANEModel.Hakkimizda" />
           <EntitySet Name="İletisim" EntityType="DBKUTUPHANEModel.İletisim" />
+          <FunctionImport Name="EnFazlaKitapYazar" ReturnType="Collection(String)" />
         </EntityContainer>
         <EntityType Name="Personel">
           <Key>
@@ -620,6 +622,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="EnFazlaKitapYazar" FunctionName="DBKUTUPHANEModel.Store.EnFazlaKitapYazar" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
