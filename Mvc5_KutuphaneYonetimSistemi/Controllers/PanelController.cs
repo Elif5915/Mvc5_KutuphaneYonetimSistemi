@@ -9,6 +9,8 @@ namespace Mvc5_KutuphaneYonetimSistemi.Controllers
     public class PanelController : Controller
     {
         // GET: Panel
+
+        [Authorize]
         public ActionResult Index()
         {
             return View();
