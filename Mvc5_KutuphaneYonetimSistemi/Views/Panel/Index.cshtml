@@ -1,4 +1,5 @@
-﻿
+﻿@model Mvc5_KutuphaneYonetimSistemi.Models.Entity.Uyeler
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutPanel.cshtml";
@@ -8,42 +9,65 @@
 
 @*@HttpContext.Current.User.Identity.Name => giriş sf da mail/sifre ile giriş yapılınca girilen mail bilgisini buraya taşıyıp çekmemize yarayan kod*@
 
+@using (Html.BeginForm("Index2", "Panel", FormMethod.Post)) {
+
 <table class="table table-hover">
     <br />
-    <tr>
-        <td>
-            <label style="font-weight:bolder">Üye Id :</label> @TempData["Id"]
-        </td>
-    </tr>
+
     <tr>
         <td>
             <label style="font-weight:bolder">Mail Adresi :</label>  @HttpContext.Current.User.Identity.Name
         </td>
     </tr>
+    <!--<tr>
+        <td>-->
+    @*<label style="font-weight:bolder">Üye Id :</label> @TempData["Id"]*@
+    @*@Html.LabelFor(x => x.Id)*@
+    <!--@Html.TextBoxFor(x => x.Id, new { @class = "form-control" })
+        </td>
+    </tr>-->
+
     <tr>
         <td>
-            <label style="font-weight:bolder">Ad :</label> @TempData["Ad"].ToString()
+            @*<label style="font-weight:bolder">Ad :</label> @TempData["Ad"].ToString()*@
+
+            @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
         </td>
     </tr>
     <tr>
         <td>
-            <label style="font-weight:bolder">Soyad :</label> @TempData["Soyad"].ToString()
+            @*<label style="font-weight:bolder">Soyad :</label> @TempData["Soyad"].ToString()*@
+
+            @Html.TextBoxFor(x => x.Soyad, new { @class = "form-control" })
         </td>
     </tr>
     <tr>
         <td>
-            <label style="font-weight:bolder">Kullanıcı Adı :</label>  @TempData["KullaniciAd"].ToString()
+            @*<label style="font-weight:bolder">Kullanıcı Adı :</label>  @TempData["KullaniciAd"].ToString()*@
+
+            @Html.TextBoxFor(x => x.KullaniciAdi, new { @class = "form-control" })
         </td>
     </tr>
     <tr>
         <td>
             @*<label style="font-weight:bolder">Şifre :</label>  @Session["Sifre"].ToString()*@
-            <label style="font-weight:bolder">Şifre :</label> <input type="text" class="form-control" value=" @TempData["Sifre"].ToString()" />
+            @*<label style="font-weight:bolder">Şifre :</label> <input type="text" class="form-control" name="Sifre" value=" @TempData["Sifre"].ToString()" />*@
+
+            @Html.TextBoxFor(x => x.Sifre, new { @class = "form-control" })
         </td>
     </tr>
     <tr>
         <td>
-            <label style="font-weight:bolder">Okul :</label> @TempData["Okul"].ToString()
+            @*<label style="font-weight:bolder">Okul :</label> @TempData["Okul"].ToString()*@
+
+            @Html.TextBoxFor(x => x.Okul, new { @class = "form-control" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @*<label style="font-weight:bolder">Okul :</label> @TempData["Okul"].ToString()*@
+
+            @Html.TextBoxFor(x => x.Fotograf, new { @class = "form-control" })
         </td>
     </tr>
     <tr>
@@ -51,4 +75,7 @@
             <button class="btn btn-warning">Şifre Güncelle</button>
         </td>
     </tr>
+
 </table>
+
+}

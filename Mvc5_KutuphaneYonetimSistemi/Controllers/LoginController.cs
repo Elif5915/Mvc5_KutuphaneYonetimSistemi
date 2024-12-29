@@ -32,12 +32,12 @@ namespace Mvc5_KutuphaneYonetimSistemi.Controllers
                 //Session["Okul"] = data.Okul.ToString();
 
                 Session["mail"] = data.Mail.ToString();
-                TempData["Id"] = data.Id.ToString();
-                TempData["Ad"] = data.Ad.ToString();
-                TempData["Soyad"] = data.Soyad.ToString();
-                TempData["KullaniciAd"] = data.KullaniciAdi.ToString();
-                TempData["Sifre"] = data.Sifre.ToString();
-                TempData["Okul"] = data.Okul.ToString();
+                //TempData["Id"] = data.Id.ToString();
+                //TempData["Ad"] = data.Ad.ToString();
+                //TempData["Soyad"] = data.Soyad.ToString();
+                //TempData["KullaniciAd"] = data.KullaniciAdi.ToString();
+                //TempData["Sifre"] = data.Sifre.ToString();
+                //TempData["Okul"] = data.Okul.ToString();
 
                 return RedirectToAction("Index", "Panel");
 			}

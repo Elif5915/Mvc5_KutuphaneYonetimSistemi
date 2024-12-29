@@ -3,17 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Mvc5_KutuphaneYonetimSistemi.Models.Entity;
 
 namespace Mvc5_KutuphaneYonetimSistemi.Controllers
 {
     public class PanelController : Controller
     {
         // GET: Panel
+        DBKUTUPHANEEntities db = new DBKUTUPHANEEntities();
 
         [Authorize]
+        [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            var uyeMail = (string)Session["Mail"];
+            var deger = db.Uyeler.FirstOrDefault(z => z.Mail == uyeMail);
+            return View(deger);
         }
+
+        [HttpPost]
+        public ActionResult Index2(Uyeler uyeler)
+		{
+            var kullanici = (string)Session["Mail"];
+            var uye = db.Uyeler.FirstOrDefault(x => x.Mail == kullanici);
+            uye.Sifre = uyeler.Sifre;
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+		}
     }
 }

@@ -38,6 +38,7 @@ namespace Mvc5_KutuphaneYonetimSistemi.Models.Entity
         public virtual DbSet<Personel> Personel { get; set; }
         public virtual DbSet<Hakkimizda> Hakkimizda { get; set; }
         public virtual DbSet<İletisim> İletisim { get; set; }
+        public virtual DbSet<Mesajlar> Mesajlar { get; set; }
     
         public virtual ObjectResult<string> EnFazlaKitapYazar()
         {

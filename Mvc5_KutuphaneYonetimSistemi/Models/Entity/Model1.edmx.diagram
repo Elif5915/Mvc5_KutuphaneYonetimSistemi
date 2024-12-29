@@ -23,6 +23,7 @@
         <AssociationConnector Association="DBKUTUPHANEModel.FK_Hareket_Personel" />
         <EntityTypeShape EntityType="DBKUTUPHANEModel.Hakkimizda" Width="1.5" PointX="10.5" PointY="3.625" />
         <EntityTypeShape EntityType="DBKUTUPHANEModel.İletisim" Width="1.5" PointX="10" PointY="0.75" />
+        <EntityTypeShape EntityType="DBKUTUPHANEModel.Mesajlar" Width="1.5" PointX="8.375" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
