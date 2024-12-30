@@ -27,9 +27,18 @@ namespace Mvc5_KutuphaneYonetimSistemi.Controllers
             var kullanici = (string)Session["Mail"];
             var uye = db.Uyeler.FirstOrDefault(x => x.Mail == kullanici);
             uye.Sifre = uyeler.Sifre;
+            uye.Ad = uyeler.Ad;
+            uye.Fotograf = uyeler.Fotograf;
+            uye.Okul = uyeler.Okul;
+            uye.KullaniciAdi = uyeler.KullaniciAdi;
             db.SaveChanges();
 
             return RedirectToAction("Index");
+		}
+        public ActionResult Kitaplarim()
+		{
+            var deger = db.Hareket.Where(x => x.IslemDurum == true).ToList();
+            return View(deger);
 		}
     }
 }

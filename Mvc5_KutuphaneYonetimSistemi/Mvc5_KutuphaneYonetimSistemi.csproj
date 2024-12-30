@@ -576,6 +576,8 @@
     <Content Include="Views\Panel\Index.cshtml" />
     <Content Include="Views\Mesaj\Index.cshtml" />
     <Content Include="Views\Mesaj\YeniMesaj.cshtml" />
+    <Content Include="Views\Mesaj\GidenMesaj.cshtml" />
+    <Content Include="Views\Panel\Kitaplarim.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
