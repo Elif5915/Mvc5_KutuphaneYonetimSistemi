@@ -66,5 +66,11 @@ namespace Mvc5_KutuphaneYonetimSistemi.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult UyeKitapGecmis(int id)
+		{
+            var data = db.Hareket.Where(x => x.Uye == id).ToList();
+            return View(data);
+		}
     }
 }

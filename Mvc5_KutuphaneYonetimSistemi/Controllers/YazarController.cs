@@ -57,6 +57,12 @@ namespace Mvc5_KutuphaneYonetimSistemi.Controllers
 			return RedirectToAction("Index");
 		}
 
+		public ActionResult YazarKitaplari(int id)
+		{
+			var data = db.Kitap.Where(y => y.Yazar == id).ToList();
+			return View(data);
+		}
+
 
 	}
 }

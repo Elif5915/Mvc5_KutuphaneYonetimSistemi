@@ -13,7 +13,6 @@
         <th>Id</th>
         <th>Ad</th>
         <th>Soyad</th>
-        <th>Detay</th>
         <th></th>
         <th></th>
     </tr>
@@ -23,12 +22,17 @@
                     <td>@item.Id</td>
                     <td>@item.Ad</td>
                     <td>@item.Soyad</td>
-                    <td>@item.Detay</td>
+                  
                     <td>
                         @*<a href="#" class="btn btn-danger">Sil</a>*@
                         <a href="/Yazar/YazarGetir/@item.Id" class="btn btn-info">Güncelle</a>
                     </td>
-                    <td>@Html.ActionLink("Sil","YazarSil", new {id = item.Id}, new {@class = "btn btn-danger", onclick ="return confirm('Silmek istediğinize emin misiniz?')"})</td>
+                    <td>
+                    @Html.ActionLink("Sil","YazarSil", new {id = item.Id}, new {@class = "btn btn-danger", onclick ="return confirm('Silmek istediğinize emin misiniz?')"})
+                    </td>
+                    <td>
+                        <a href="/Yazar/YazarKitaplari/@item.Id" class="btn btn-info" style="background-color:cadetblue">Kitaplar</a>
+                    </td>
                 </tr>
 			}
 </table>

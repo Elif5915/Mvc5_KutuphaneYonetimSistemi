@@ -13,7 +13,7 @@ namespace Mvc5_KutuphaneYonetimSistemi.Controllers
         DBKUTUPHANEEntities db = new DBKUTUPHANEEntities();
         public ActionResult Index()
         {
-            var value = db.Kategori.ToList();
+            var value = db.Kategori.Where(x => x.Durum == true).ToList();
             return View(value);
         }
 
@@ -34,7 +34,8 @@ namespace Mvc5_KutuphaneYonetimSistemi.Controllers
         public ActionResult KategoriSil(int id)
 		{
             var kategori = db.Kategori.Find(id);
-            db.Kategori.Remove(kategori);
+            //db.Kategori.Remove(kategori);
+            kategori.Durum = false;
             db.SaveChanges();
             return RedirectToAction("Index");
 		}

@@ -22,6 +22,7 @@ namespace Mvc5_KutuphaneYonetimSistemi.Models.Entity
     
         public byte Id { get; set; }
         public string Ad { get; set; }
+        public Nullable<bool> Durum { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Kitap> Kitap { get; set; }

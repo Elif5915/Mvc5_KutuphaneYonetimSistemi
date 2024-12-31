@@ -37,7 +37,9 @@ namespace Mvc5_KutuphaneYonetimSistemi.Controllers
 		}
         public ActionResult Kitaplarim()
 		{
-            var deger = db.Hareket.Where(x => x.IslemDurum == true).ToList();
+            var kullanici = (string)Session["Mail"];
+            var id = db.Uyeler.Where(x => x.Mail == kullanici.ToString()).Select(y => y.Id).FirstOrDefault();
+            var deger = db.Hareket.Where(x => x.Uye == id).ToList();
             return View(deger);
 		}
     }

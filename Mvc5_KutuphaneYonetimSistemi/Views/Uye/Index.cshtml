@@ -17,10 +17,10 @@
         <th>Üye Id</th>
         <th>Üye Adı</th>
         <th>Üye Soyadı</th>
-        <th>Mail</th>
+        @*<th>Mail</th>
         <th>Kullanıcı Adı</th>
         <th>Şifre</th>
-        <th>Telefon</th>
+        <th>Telefon</th>*@
         <th>Okul</th>
         <th></th>
     </tr>
@@ -30,14 +30,15 @@
             <td>@uye.Id</td>
             <td>@uye.Ad</td>
             <td>@uye.Soyad</td>
-            <td>@uye.Mail</td>
+            @*<td>@uye.Mail</td>
             <td>@uye.KullaniciAdi</td>
             <td>@uye.Sifre</td>
-            <td>@uye.Telefon</td>
+            <td>@uye.Telefon</td>*@
             <td>@uye.Okul</td>
             <td>
                 <a href="/Uye/UyeSil/@uye.Id" class="btn btn-danger">Sil</a>
                 <a href="/Uye/UyeGuncelle/@uye.Id" class="btn btn-info">Güncelle</a>
+                <a href="/Uye/UyeKitapGecmis/@uye.Id" class="btn btn-info" style="background-color:cadetblue">Kitap Geçmişi</a>
             </td>
         </tr>
     }

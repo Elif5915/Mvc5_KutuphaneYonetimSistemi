@@ -24,14 +24,14 @@ namespace Mvc5_KutuphaneYonetimSistemi.Controllers
             if(data != null)
 			{
                 FormsAuthentication.SetAuthCookie(data.Mail, false);
-                //Session["Id"] = data.Id.ToString();
-                //Session["Ad"] = data.Ad.ToString();
-                //Session["Soyad"] = data.Soyad.ToString();
-                //Session["KullaniciAd"] = data.KullaniciAdi.ToString();
-                //Session["Sifre"] = data.Sifre.ToString();
-                //Session["Okul"] = data.Okul.ToString();
+				//Session["Id"] = data.Id.ToString();
+				Session["Ad"] = data.Ad.ToString();
+				Session["Soyad"] = data.Soyad.ToString();
+				//Session["KullaniciAd"] = data.KullaniciAdi.ToString();
+				//Session["Sifre"] = data.Sifre.ToString();
+				//Session["Okul"] = data.Okul.ToString();
 
-                Session["mail"] = data.Mail.ToString();
+				Session["mail"] = data.Mail.ToString();
                 //TempData["Id"] = data.Id.ToString();
                 //TempData["Ad"] = data.Ad.ToString();
                 //TempData["Soyad"] = data.Soyad.ToString();

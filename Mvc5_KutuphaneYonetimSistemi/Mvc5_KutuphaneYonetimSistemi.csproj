@@ -578,6 +578,8 @@
     <Content Include="Views\Mesaj\YeniMesaj.cshtml" />
     <Content Include="Views\Mesaj\GidenMesaj.cshtml" />
     <Content Include="Views\Panel\Kitaplarim.cshtml" />
+    <Content Include="Views\Yazar\YazarKitaplari.cshtml" />
+    <Content Include="Views\Uye\UyeKitapGecmis.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
