@@ -70,6 +70,8 @@ namespace Mvc5_KutuphaneYonetimSistemi.Controllers
         public ActionResult UyeKitapGecmis(int id)
 		{
             var data = db.Hareket.Where(x => x.Uye == id).ToList();
+            var uyeKitap = db.Uyeler.Where(y => y.Id == id).Select(z => z.Ad + " " + z.Soyad).FirstOrDefault();
+            ViewBag.uyeBilgi = uyeKitap;
             return View(data);
 		}
     }

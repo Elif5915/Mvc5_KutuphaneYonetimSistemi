@@ -1,0 +1,37 @@
+﻿@using Mvc5_KutuphaneYonetimSistemi.Models.Entity
+@model List<Duyuru>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+<h2>Duyurular</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Duyuru No</th>
+        <th>Tarih</th>
+        <th>Kategori</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@Convert.ToDateTime(item.Tarih).ToString("dd-MM-yyyyy")</td>
+            <td>@item.Kategori</td>
+            <td>
+                <a href="/Duyuru/DuyuruDetayGuncel/@item.Id" class="btn btn-info" style="background-color:cadetblue">Detaylar</a>
+                <a href="/Duyuru/DuyuruSil/@item.Id" class="btn btn-danger">Sil</a>
+                @*<a href="/Duyuru/DuyuruGuncelleme/@item.Id" class="btn btn-info">Güncelle</a>*@
+            </td>
+        </tr>
+    }  
+
+</table>
+<a href="/Duyuru/DuyuruEkle" class="btn btn-primary">Yeni Duyuru Ekle</a>
+
+
+

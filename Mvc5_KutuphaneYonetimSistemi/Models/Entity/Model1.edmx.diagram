@@ -10,7 +10,7 @@
         <EntityTypeShape EntityType="DBKUTUPHANEModel.Kasa" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBKUTUPHANEModel.Kategori" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBKUTUPHANEModel.Kitap" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBKUTUPHANEModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBKUTUPHANEModel.sysdiagrams" Width="1.5" PointX="6.75" PointY="7.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DBKUTUPHANEModel.Uyeler" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="DBKUTUPHANEModel.Yazar" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
         <AssociationConnector Association="DBKUTUPHANEModel.FK_Cezalar_Hareket" ManuallyRouted="false" />
@@ -21,9 +21,10 @@
         <AssociationConnector Association="DBKUTUPHANEModel.FK_Kitap_Yazar" ManuallyRouted="false" />
         <EntityTypeShape EntityType="DBKUTUPHANEModel.Personel" Width="1.5" PointX="8.375" PointY="5.125" />
         <AssociationConnector Association="DBKUTUPHANEModel.FK_Hareket_Personel" />
-        <EntityTypeShape EntityType="DBKUTUPHANEModel.Hakkimizda" Width="1.5" PointX="10.5" PointY="3.625" />
+        <EntityTypeShape EntityType="DBKUTUPHANEModel.Hakkimizda" Width="1.5" PointX="9.625" PointY="3.25" />
         <EntityTypeShape EntityType="DBKUTUPHANEModel.İletisim" Width="1.5" PointX="10" PointY="0.75" />
-        <EntityTypeShape EntityType="DBKUTUPHANEModel.Mesajlar" Width="1.5" PointX="8.375" PointY="7.75" />
+        <EntityTypeShape EntityType="DBKUTUPHANEModel.Mesajlar" Width="1.5" PointX="9.5" PointY="7.25" />
+        <EntityTypeShape EntityType="DBKUTUPHANEModel.Duyuru" Width="1.5" PointX="10.5" PointY="5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

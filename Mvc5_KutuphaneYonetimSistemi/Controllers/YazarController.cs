@@ -60,6 +60,8 @@ namespace Mvc5_KutuphaneYonetimSistemi.Controllers
 		public ActionResult YazarKitaplari(int id)
 		{
 			var data = db.Kitap.Where(y => y.Yazar == id).ToList();
+			var yzrAd = db.Yazar.Where(z => z.Id == id).Select(x => x.Ad + " " + x.Soyad).FirstOrDefault();
+			ViewBag.yazar = yzrAd;
 			return View(data);
 		}
 

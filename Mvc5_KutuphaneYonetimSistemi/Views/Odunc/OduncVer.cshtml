@@ -9,20 +9,23 @@
 <form class="form-group" method="post">
     <div></div>
     <div style="margin-top:15px">
-        <label> Üye ID</label>
-        @Html.TextBoxFor(y => y.Uye, new { @class = "form-control" })
+        <label> Üye </label>
+        @*@Html.TextBoxFor(y => y.Uye, new { @class = "form-control" })*@
+        @Html.DropDownListFor(k => k.Uyeler.Id, (List<SelectListItem>)@ViewBag.dgr1, new { @class = "form-control" })
         <br />
-        <label> Kitap Id</label>
-        @Html.TextBoxFor(y => y.Kitap, new { @class = "form-control" })
+        <label> Kitap </label>
+        @*@Html.TextBoxFor(y => y.Kitap, new { @class = "form-control" })*@
+        @Html.DropDownListFor(k => k.Kitap.Id, (List<SelectListItem>)@ViewBag.dgr2, new { @class = "form-control" })
         <br />
-        <label> Personel Id</label>
-        @Html.TextBoxFor(y => y.Personel, new { @class = "form-control" })
+        <label> Personel </label>
+        @*@Html.TextBoxFor(y => y.Personel, new { @class = "form-control" })*@
+        @Html.DropDownListFor(k => k.Personel1.Id, (List<SelectListItem>)@ViewBag.dgr3, new { @class = "form-control" })
         <br />
         <label> Kitap Alış Tarihi</label>
         <input type="text" class="form-control" name="AlisTarihi" value="@DateTime.Now.ToShortDateString()" readonly />
         <br />
         <label> Kitap İade Tarihi</label>
-        <input type="text" class="form-control" name="IadeTarihi" value="@DateTime.Now.AddDays(7).ToString("dd-MM-yyyy")" /> 
+        <input type="text" class="form-control" name="IadeTarihi" value="@DateTime.Now.AddDays(7).ToString("dd-MM-yyyy")" />
         @*üyenin kütabı verme süresi default 7 gün olarak belirlendi. aldığı gün + 7 = teslim*@
 
     </div>

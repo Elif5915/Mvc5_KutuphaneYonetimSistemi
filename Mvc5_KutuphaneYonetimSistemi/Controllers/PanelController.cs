@@ -42,5 +42,10 @@ namespace Mvc5_KutuphaneYonetimSistemi.Controllers
             var deger = db.Hareket.Where(x => x.Uye == id).ToList();
             return View(deger);
 		}
+        public ActionResult Duyurular()
+		{
+            var duyuruList = db.Duyuru.ToList();
+            return View(duyuruList);
+		}
     }
 }

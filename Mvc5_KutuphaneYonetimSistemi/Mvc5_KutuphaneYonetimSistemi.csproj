@@ -134,6 +134,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DuyuruController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IslemlerController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
@@ -153,6 +154,9 @@
     </Compile>
     <Compile Include="Models\Classes\Class1.cs" />
     <Compile Include="Models\Entity\Cezalar.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\Duyuru.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entity\Hakkimizda.cs">
@@ -580,6 +584,10 @@
     <Content Include="Views\Panel\Kitaplarim.cshtml" />
     <Content Include="Views\Yazar\YazarKitaplari.cshtml" />
     <Content Include="Views\Uye\UyeKitapGecmis.cshtml" />
+    <Content Include="Views\Duyuru\Index.cshtml" />
+    <Content Include="Views\Duyuru\DuyuruEkle.cshtml" />
+    <Content Include="Views\Duyuru\DuyuruDetayGuncel.cshtml" />
+    <Content Include="Views\Panel\Duyurular.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

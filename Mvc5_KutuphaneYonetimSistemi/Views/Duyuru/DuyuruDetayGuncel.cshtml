@@ -1,0 +1,34 @@
+﻿@model Mvc5_KutuphaneYonetimSistemi.Models.Entity.Duyuru
+
+@{
+    ViewBag.Title = "DuyuruDetayGuncel";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Duyuru Güncelleme ve Detayları</h2>
+
+@using (Html.BeginForm("DuyuruGuncel", "Duyuru", FormMethod.Post))
+{
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        @Html.LabelFor(k => k.Id)
+        @Html.TextBoxFor(k => k.Id, new { @class = "form-control" })
+        <br />
+        <label>Duyuru Kategori</label>
+        @Html.TextBoxFor(k => k.Kategori, new { @class = "form-control" })
+        <br />
+        <label>Duyuru Tarihi</label>
+        @Html.TextBoxFor(k => k.Tarih, new { @class = "form-control" })
+        <br />
+        <label>Duyuru İçeriği</label>
+        @Html.TextAreaFor(k => k.Icerik, new { @class = "form-control" })
+
+    </div>
+    <div>
+        <button class="btn btn-success">Güncelle</button>
+    </div>
+
+
+}
+
+
