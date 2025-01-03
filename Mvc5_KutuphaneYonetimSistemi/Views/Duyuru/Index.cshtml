@@ -4,6 +4,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout.cshtml";
+    string renk = "";
 }
 
 
@@ -18,7 +19,23 @@
     </tr>
     @foreach (var item in Model)
     {
-        <tr>
+        if(item.Kategori == "Yeni Kitap")
+        {
+            renk = "bg-info text-white";
+        }
+        if(item.Kategori == "Diğer")
+        {
+            renk = "bg-warning text-white";
+        }
+        if (item.Kategori == "İletişim")
+        {
+            renk = "bg-danger text-white";
+        }
+        if (item.Kategori == "Kitapları Geçiktirmeme")
+        {
+            renk = "bg-success text-white";
+        }
+        <tr class="@renk">
             <td>@item.Id</td>
             <td>@Convert.ToDateTime(item.Tarih).ToString("dd-MM-yyyyy")</td>
             <td>@item.Kategori</td>
