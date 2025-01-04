@@ -8,6 +8,7 @@ using System.Web.Security;
 
 namespace Mvc5_KutuphaneYonetimSistemi.Controllers
 {
+    [AllowAnonymous] //bu komut attr. ile girisyap işlemimi global.asaxdaki authorize işleminden muaf tuttum.
     public class LoginController : Controller
     {
         // GET: Login

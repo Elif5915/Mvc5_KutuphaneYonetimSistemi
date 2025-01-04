@@ -12,6 +12,7 @@ namespace Mvc5_KutuphaneYonetimSistemi
 	{
 		protected void Application_Start()
 		{
+			GlobalFilters.Filters.Add(new AuthorizeAttribute()); //bu kod satırı ile eğer auth giriş yapılmadıysa hiçbir şekilde sisteme giriş yapılmasın dedik.Proje bazında authorize işlemi bu.burada kısıtlama da yaptırabilirsin.
 			AreaRegistration.RegisterAllAreas();
 			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 			RouteConfig.RegisterRoutes(RouteTable.Routes);

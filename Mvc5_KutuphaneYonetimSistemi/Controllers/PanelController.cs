@@ -8,12 +8,13 @@ using Mvc5_KutuphaneYonetimSistemi.Models.Entity;
 
 namespace Mvc5_KutuphaneYonetimSistemi.Controllers
 {
+    [Authorize] //buraya eklersek bu controller içerisindeki tüm metodlarda auth. uygula demiş oluruz.Yani controller bazında auth. işlemi bu
     public class PanelController : Controller
     {
         // GET: Panel
         DBKUTUPHANEEntities db = new DBKUTUPHANEEntities();
 
-        [Authorize]
+        // [Authorize] method bazında auth. işlemidir
         [HttpGet]
         public ActionResult Index()
         {
@@ -43,6 +44,8 @@ namespace Mvc5_KutuphaneYonetimSistemi.Controllers
             var deger = db.Hareket.Where(x => x.Uye == id).ToList();
             return View(deger);
 		}
+
+       // [Authorize]
         public ActionResult Duyurular()
 		{
             var duyuruList = db.Duyuru.ToList();
