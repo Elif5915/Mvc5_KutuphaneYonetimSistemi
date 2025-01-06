@@ -20,6 +20,20 @@ namespace Mvc5_KutuphaneYonetimSistemi.Controllers
         {
             var uyeMail = (string)Session["Mail"];
             var deger = db.Uyeler.FirstOrDefault(z => z.Mail == uyeMail);
+            var name = db.Uyeler.Where(x => x.Mail == uyeMail).Select(z => z.Ad).FirstOrDefault();
+            ViewBag.Name = name;
+            var surname = db.Uyeler.Where(y => y.Mail == uyeMail).Select(z => z.Soyad).FirstOrDefault();
+            ViewBag.SurName = surname;
+            var image = db.Uyeler.Where(y => y.Mail == uyeMail).Select(z => z.Fotograf).FirstOrDefault();
+            ViewBag.Image = image;
+            var username = db.Uyeler.Where(y => y.Mail == uyeMail).Select(z => z.KullaniciAdi).FirstOrDefault();
+            ViewBag.UserName = username;
+            var school = db.Uyeler.Where(y => y.Mail == uyeMail).Select(z => z.Okul).FirstOrDefault();
+            ViewBag.School = school;
+            var phone = db.Uyeler.Where(y => y.Mail == uyeMail).Select(z => z.Telefon).FirstOrDefault();
+            ViewBag.Phone = phone;
+            var mail = db.Uyeler.Where(y => y.Mail == uyeMail).Select(z => z.Mail).FirstOrDefault();
+            ViewBag.Mail = mail;
             return View(deger);
         }
 
@@ -55,6 +69,10 @@ namespace Mvc5_KutuphaneYonetimSistemi.Controllers
 		{
             FormsAuthentication.SignOut(); //FormsAuthentication : using System.Web.Security; eklemek gerek, oturumu kapat dedim.
             return RedirectToAction("GirisYap","Login");
+		}
+        public PartialViewResult PartialActivity()
+		{
+            return PartialView();
 		}
     }
 }

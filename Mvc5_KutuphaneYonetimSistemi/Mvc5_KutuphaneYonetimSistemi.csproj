@@ -2680,6 +2680,7 @@
     <Content Include="Views\Duyuru\DuyuruEkle.cshtml" />
     <Content Include="Views\Duyuru\DuyuruDetayGuncel.cshtml" />
     <Content Include="Views\Panel\Duyurular.cshtml" />
+    <Content Include="Views\Panel\PartialActivity.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
