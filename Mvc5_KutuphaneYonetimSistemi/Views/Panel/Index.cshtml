@@ -1,4 +1,4 @@
-﻿@model Mvc5_KutuphaneYonetimSistemi.Models.Entity.Uyeler
+﻿@model Mvc5_KutuphaneYonetimSistemi.Models.Entity.Duyuru
 
 @{
     ViewBag.Title = "Index";
@@ -64,25 +64,25 @@
 
                                 <li class="list-group-item">
 
-                                    <b>Followers</b> <a class="float-right">1,322</a>
+                                    <b>Okunan Kitap Sayısı</b> <a class="float-right">@ViewBag.Kitap</a>
 
                                 </li>
 
                                 <li class="list-group-item">
 
-                                    <b>Following</b> <a class="float-right">543</a>
+                                    <b>Gelen Mesaj Sayısı</b> <a class="float-right">@ViewBag.Mesaj</a>
 
                                 </li>
 
                                 <li class="list-group-item">
 
-                                    <b>Friends</b> <a class="float-right">13,287</a>
+                                    <b>Duyuru Sayısı</b> <a class="float-right">@ViewBag.Duyuru</a>
 
                                 </li>
 
                             </ul>
 
-                            <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+                            <a href="/Mesaj/Index/" class="btn btn-primary btn-block"><b>Gelen Kutusu</b></a>
 
                         </div>
                     </div>
@@ -150,7 +150,7 @@
 
                                 <div class="tab-pane" id="settings">
 
-                                    @using (Html.BeginForm("Index2", "Panelim", FormMethod.Post))
+                                    @using (Html.BeginForm("Index2", "Panel", FormMethod.Post))
 
                                     {
                                         <form class="form-horizontal">

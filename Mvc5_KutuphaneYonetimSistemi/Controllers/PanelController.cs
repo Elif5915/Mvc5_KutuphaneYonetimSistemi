@@ -19,7 +19,9 @@ namespace Mvc5_KutuphaneYonetimSistemi.Controllers
         public ActionResult Index()
         {
             var uyeMail = (string)Session["Mail"];
-            var deger = db.Uyeler.FirstOrDefault(z => z.Mail == uyeMail);
+            //var deger = db.Uyeler.FirstOrDefault(z => z.Mail == uyeMail);
+            var deger = db.Duyuru.ToList();
+
             var name = db.Uyeler.Where(x => x.Mail == uyeMail).Select(z => z.Ad).FirstOrDefault();
             ViewBag.Name = name;
             var surname = db.Uyeler.Where(y => y.Mail == uyeMail).Select(z => z.Soyad).FirstOrDefault();
@@ -34,6 +36,17 @@ namespace Mvc5_KutuphaneYonetimSistemi.Controllers
             ViewBag.Phone = phone;
             var mail = db.Uyeler.Where(y => y.Mail == uyeMail).Select(z => z.Mail).FirstOrDefault();
             ViewBag.Mail = mail;
+
+            var uyeId = db.Uyeler.Where(z => z.Mail == uyeMail).Select(x => x.Id).FirstOrDefault();
+            var topKitap = db.Hareket.Where(x => x.Uye == uyeId).Count();
+            ViewBag.Kitap = topKitap;
+
+            var topMesaj = db.Mesajlar.Where(x => x.Alıcı == uyeMail).Count();
+            ViewBag.Mesaj = topMesaj;
+
+            var duyuru = db.Duyuru.Count();
+            ViewBag.Duyuru = duyuru;
+
             return View(deger);
         }
 
