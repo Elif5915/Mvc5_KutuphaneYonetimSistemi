@@ -2682,6 +2682,7 @@
     <Content Include="Views\Panel\Duyurular.cshtml" />
     <Content Include="Views\Panel\PartialActivity.cshtml" />
     <Content Include="Views\Panel\PartialSetting.cshtml" />
+    <Content Include="Views\Mesaj\Partial1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

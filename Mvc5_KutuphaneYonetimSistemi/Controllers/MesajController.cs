@@ -42,5 +42,9 @@ namespace Mvc5_KutuphaneYonetimSistemi.Controllers
             db.SaveChanges();
             return RedirectToAction("GidenMesaj", "Mesaj");
 		}
+        public PartialViewResult Partial1()
+		{
+            return PartialView();
+		}
     }
 }
