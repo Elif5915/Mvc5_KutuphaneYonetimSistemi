@@ -83,9 +83,16 @@ namespace Mvc5_KutuphaneYonetimSistemi.Controllers
             FormsAuthentication.SignOut(); //FormsAuthentication : using System.Web.Security; eklemek gerek, oturumu kapat dedim.
             return RedirectToAction("GirisYap","Login");
 		}
-        public PartialViewResult PartialActivity()
+        public PartialViewResult PartialActivity() // duyurular partialı
 		{
             return PartialView();
 		}
+        public PartialViewResult PartialSetting()
+		{
+            var kullanici = (string)Session["Mail"];
+            var id = db.Uyeler.Where(x => x.Mail == kullanici).Select(y => y.Id).FirstOrDefault();
+            var uyeBul = db.Uyeler.Find(id);
+            return PartialView("PartialSetting", uyeBul);
+        }
     }
 }

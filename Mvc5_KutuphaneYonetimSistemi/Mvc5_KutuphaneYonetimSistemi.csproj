@@ -2681,6 +2681,7 @@
     <Content Include="Views\Duyuru\DuyuruDetayGuncel.cshtml" />
     <Content Include="Views\Panel\Duyurular.cshtml" />
     <Content Include="Views\Panel\PartialActivity.cshtml" />
+    <Content Include="Views\Panel\PartialSetting.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
