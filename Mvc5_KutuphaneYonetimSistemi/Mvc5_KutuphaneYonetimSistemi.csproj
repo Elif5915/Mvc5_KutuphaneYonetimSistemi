@@ -136,6 +136,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminLoginController.cs" />
     <Compile Include="Controllers\DuyuruController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IslemlerController.cs" />
@@ -155,6 +156,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Classes\Class1.cs" />
+    <Compile Include="Models\Entity\Admin.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Entity\Cezalar.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -2683,6 +2687,7 @@
     <Content Include="Views\Panel\PartialActivity.cshtml" />
     <Content Include="Views\Panel\PartialSetting.cshtml" />
     <Content Include="Views\Mesaj\Partial1.cshtml" />
+    <Content Include="Views\AdminLogin\AdminLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

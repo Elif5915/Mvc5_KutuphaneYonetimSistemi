@@ -25,6 +25,7 @@
         <EntityTypeShape EntityType="DBKUTUPHANEModel.İletisim" Width="1.5" PointX="10" PointY="0.75" />
         <EntityTypeShape EntityType="DBKUTUPHANEModel.Mesajlar" Width="1.5" PointX="9.5" PointY="7.25" />
         <EntityTypeShape EntityType="DBKUTUPHANEModel.Duyuru" Width="1.5" PointX="10.5" PointY="5" />
+        <EntityTypeShape EntityType="DBKUTUPHANEModel.Admin" Width="1.5" PointX="1.125" PointY="7.875" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

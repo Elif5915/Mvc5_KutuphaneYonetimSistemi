@@ -44,6 +44,11 @@ namespace Mvc5_KutuphaneYonetimSistemi.Controllers
 		}
         public PartialViewResult Partial1()
 		{
+            var uyeMail = (string)Session["Mail"].ToString();
+            var gelenMesajSayisi = db.Mesajlar.Where(x => x.Alıcı == uyeMail).Count();
+            ViewBag.gelenMesajSayisi = gelenMesajSayisi;
+            var gidenMesajSayisi = db.Mesajlar.Where(y => y.Gonderen == uyeMail).Count();
+            ViewBag.gidenMesajSayisi = gidenMesajSayisi;
             return PartialView();
 		}
     }

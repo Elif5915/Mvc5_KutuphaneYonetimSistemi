@@ -6,28 +6,131 @@
     Layout = "~/Views/Shared/_LayoutPanel.cshtml";
 }
 
-<h2>Kitap Geçmişi</h2>
-<br />
 
-<table class="table table-bordered">
-    <tr>
+<!DOCTYPE html>
 
-        <th>Kitap Adı</th>
-        <th>Alış Tarihi</th>
-        <th>Üyenin Teslim Tarihi</th>
+<html>
 
-    </tr>
-    @foreach (var book in Model)
-        {
-            <tr>
-              
-                <td>@book.Kitap.Ad</td>
-                <td>@Convert.ToDateTime(book.AlisTarihi).ToString("dd-mm-yyyyy")</td>
-                <td>@Convert.ToDateTime(book.UyeGetirTarih).ToString("dd-mm-yyyy")</td>
+<head>
 
-            </tr>
-        }
-</table>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Kitaplarım</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+</head>
+
+<body class="hold-transition sidebar-mini">
+
+    <div class="wrapper">
+
+        <section class="content-header">
+
+            <div class="container-fluid">
+
+                <div class="row mb-2">
+
+                    <div class="col-sm-6">
+
+                        <h1>Kitap Geçmişi</h1>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="content">
+
+            <div class="container-fluid">
+
+                <div class="row">
+
+                    <div class="col-12">
+
+                        <div class="card">
+
+                            <div class="card-header">
+
+                                <h3 class="card-title"></h3>
+
+                                <div class="card-tools">
+
+                                    <div class="input-group input-group-sm" style="width: 150px;">
+
+                                        <input type="text" name="table_search" class="form-control float-right" placeholder="Ara">
+
+                                        <div class="input-group-append">
+
+                                            <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="card-body table-responsive p-0">
+
+                                <table class="table table-hover text-nowrap">
+
+                                    <thead>
+
+                                        <tr>
+
+                                            <th>Kitap Ad</th>
+                                            <th>Alış Tarihi</th>
+                                            <th>Üye Teslim Tarihi</th>
+
+                                        </tr>
+
+                                    </thead>
+
+                                    <tbody>
+
+                                        @foreach (var book in Model)
+                                        {
+                                            <tr>
+
+                                                <td>@book.Kitap.Ad</td>
+                                                <td>@Convert.ToDateTime(book.AlisTarihi).ToString("dd-mm-yyyyy")</td>
+                                                <td>@Convert.ToDateTime(book.UyeGetirTarih).ToString("dd-mm-yyyy")</td>
+
+                                            </tr>
+                                        }
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</body>
+
+</html>
 
 
 
