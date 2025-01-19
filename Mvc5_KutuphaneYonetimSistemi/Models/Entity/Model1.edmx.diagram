@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5ddda31775db44c5934746ae3e6dab60" Name="Diagram1">
+      <Diagram DiagramId="5ddda31775db44c5934746ae3e6dab60" Name="Diagram1" ZoomLevel="73">
         <EntityTypeShape EntityType="DBKUTUPHANEModel.Cezalar" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="DBKUTUPHANEModel.Hareket" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DBKUTUPHANEModel.Kasa" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
@@ -24,7 +24,7 @@
         <EntityTypeShape EntityType="DBKUTUPHANEModel.Hakkimizda" Width="1.5" PointX="9.625" PointY="3.25" />
         <EntityTypeShape EntityType="DBKUTUPHANEModel.İletisim" Width="1.5" PointX="10" PointY="0.75" />
         <EntityTypeShape EntityType="DBKUTUPHANEModel.Mesajlar" Width="1.5" PointX="9.5" PointY="7.25" />
-        <EntityTypeShape EntityType="DBKUTUPHANEModel.Duyuru" Width="1.5" PointX="10.5" PointY="5" />
+        <EntityTypeShape EntityType="DBKUTUPHANEModel.Duyuru" Width="1.5" PointX="10.625" PointY="5" />
         <EntityTypeShape EntityType="DBKUTUPHANEModel.Admin" Width="1.5" PointX="1.125" PointY="7.875" />
       </Diagram>
     </edmx:Diagrams>
