@@ -11,6 +11,8 @@ namespace Mvc5_KutuphaneYonetimSistemi.Controllers
     {
         // GET: Odunc
         DBKUTUPHANEEntities db = new DBKUTUPHANEEntities();
+
+        [Authorize(Roles = "A")] // sadece a rolüne sahip olanlar bu index sf görsün demiş olduk.
         public ActionResult Index()
         {
             //var values = db.Hareket.ToList();

@@ -17,5 +17,6 @@ namespace Mvc5_KutuphaneYonetimSistemi.Models.Entity
         public int Id { get; set; }
         public string Kullanici { get; set; }
         public string Sifre { get; set; }
+        public string Yetki { get; set; }
     }
 }

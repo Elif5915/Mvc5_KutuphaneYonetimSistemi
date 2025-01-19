@@ -1,0 +1,33 @@
+﻿@model Mvc5_KutuphaneYonetimSistemi.Models.Entity.Admin
+
+@{
+    ViewBag.Title = "UpdateAdmin";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Admin Bilgileri Güncelleme</h2>
+
+@using (Html.BeginForm("UpdateAdmin", "Ayarlar", FormMethod.Post))
+{
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        @Html.LabelFor(k => k.Id)
+        @Html.TextBoxFor(k => k.Id, new { @class = "form-control" })
+        <br />
+        <label>Kullanıcı Adı</label>
+        @Html.TextBoxFor(k => k.Kullanici, new { @class = "form-control" })
+        <br />
+        <label>Şifre</label>
+        @Html.TextBoxFor(k => k.Sifre, new { @class = "form-control" })
+        <br />
+        <label>Yetki</label>
+        @Html.TextBoxFor(k => k.Yetki, new { @class = "form-control" })
+    </div>
+    <div>
+        <button class="btn btn-success">Güncelle</button>
+    </div>
+
+
+}
+
+

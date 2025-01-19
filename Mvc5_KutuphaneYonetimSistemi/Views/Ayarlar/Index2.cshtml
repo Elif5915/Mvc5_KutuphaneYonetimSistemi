@@ -1,0 +1,75 @@
+﻿
+@using Mvc5_KutuphaneYonetimSistemi.Models.Entity
+@model List<Admin>
+
+@{
+    ViewBag.Title = "Index2";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/fontawesome-free/css/all.min.css">
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+
+<br />
+<h2>Admin Ayarları</h2>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Kullanıcı</th>
+        <th>Yetki</th>
+
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Kullanici</td>
+            <td>@item.Yetki</td>
+
+            <td>
+
+                <a class="btn btn-info btn-sm" href="/Ayarlar/UpdateAdmin/@item.Id">
+                    <i class="fas fa-pencil-alt">
+                    </i>
+                    Düzenle
+                </a>
+                <a class="btn btn-danger btn-sm" href="/Ayarlar/DeleteAdmin/@item.Id">
+                    <i class="fas fa-trash">
+                    </i>
+                    Sil
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<br />
+<button class="btn btn-primary" data-toggle="modal" data-target="#Modal1">Yeni Admin Ekle</button>
+
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Admin Ekleme Paneli</h2>
+            </div>
+            <form method="post" action="/Ayarlar/YeniAdmin/">
+                <div class="modal-body">
+                    <label>Kullanıcı Adı</label>
+                    <input type="text" name="Kullanici" class="form-control" />
+                    <br />
+                    <label>Şifre</label>
+                    <input type="text" name="Sifre" class="form-control" />
+                    <br />
+                    <label>Yetki</label>
+                    <input type="text" name="Yetki" class="form-control" />
+                    <br />
+                    <button class="btn btn-info">Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
